@@ -12,6 +12,7 @@ The two-metrics figure mixes teacher-forced pixel scores for most models with ro
 - results/data/e21_selected_weights.csv and results/data/e21_depth_summary.json: strict L4B four-read checkpoint metrics and the full attention-depth summary.
 - results/data/e22_rows.csv: 24 audited raster-transformer position/tokenizer cells.
 - results/data/lifegpt_seeds.csv and results/data/e20_lifegpt_l4_seeds.csv: faithful raster LifeGPT seed data.
+- results/data/two_metrics_l3_seeds.csv: all 30 seed-level Figure 2 scores, including each row's pixel evaluation mode; these are plotted-value records, not raw prediction arrays.
 
 The current E27 full main matrix is absent because its audit has not completed. Figure scores are from fresh post-submission hash-split runs, not legacy submission numbers. The E11 comparison gives 42.25% joint and 99.93% frame-by-frame Game of Life SeqAcc across three seeds. The two samplers use the same trained weights within each seed and eight network calls per rollout; the comparison changes sampling order, noise updates, and commitment together.
 

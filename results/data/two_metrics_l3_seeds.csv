@@ -1,0 +1,31 @@
+model,model_seed,pixel_acc,pixel_mode,seq_acc,n_worlds
+LifeGPT (4x128),42,0.9998798370361328,teacher_forced,0.94970703125,2048
+LifeGPT (4x128),43,0.9981746673583984,teacher_forced,0.509765625,2048
+LifeGPT (4x128),44,0.9980459213256836,teacher_forced,0.46826171875,2048
+AutomataGPT,42,0.9303,teacher_forced,0.1528,2048
+AutomataGPT,43,0.9416,teacher_forced,0.1689,2048
+AutomataGPT,44,0.9351,teacher_forced,0.1655,2048
+Burtsev 1-D transformer,42,0.8243,teacher_forced,0.0386,2048
+Burtsev 1-D transformer,43,0.9815,teacher_forced,0.0405,2048
+Burtsev 1-D transformer,44,0.9768,teacher_forced,0.0405,2048
+NCA (growing),42,0.7715,teacher_forced,0.1387,2048
+NCA (growing),43,0.7711,teacher_forced,0.1021,2048
+NCA (growing),44,0.7718,teacher_forced,0.1377,2048
+standard CNN,42,0.9625,teacher_forced,0.1909,2048
+standard CNN,43,0.9645,teacher_forced,0.188,2048
+standard CNN,44,0.9636,teacher_forced,0.1904,2048
+3D-conv CNN,42,0.9999761581420898,teacher_forced,0.998046875,2048
+3D-conv CNN,43,1.0,teacher_forced,1.0,2048
+3D-conv CNN,44,0.9999570846557617,teacher_forced,0.9951171875,2048
+KV-shift transformer,42,1.0,teacher_forced,1.0,2048
+KV-shift transformer,43,1.0,teacher_forced,1.0,2048
+KV-shift transformer,44,1.0,teacher_forced,1.0,2048
+standard diffusion,42,0.6167,rollout,0.0,2048
+standard diffusion,43,0.6218,rollout,0.0,2048
+standard diffusion,44,0.6211,rollout,0.0,2048
+causal-freezing diffusion,42,1.0,rollout,1.0,2048
+causal-freezing diffusion,43,0.9992399215698242,rollout,0.99267578125,2048
+causal-freezing diffusion,44,0.9984064102172852,rollout,0.9892578125,2048
+Diff-NCA,42,0.7932,teacher_forced,0.147,2048
+Diff-NCA,43,0.7888,teacher_forced,0.1489,2048
+Diff-NCA,44,0.7913,teacher_forced,0.1484,2048
