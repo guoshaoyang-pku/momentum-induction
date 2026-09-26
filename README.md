@@ -15,7 +15,13 @@ The current E27 full main matrix is absent because its audit has not completed. 
 
 ## Environment and quick checks
 
-Python 3.10 or newer, NumPy, and PyTorch run the package. Install pytest for the test suite and Matplotlib for plotting. The local CPU verification environment was Python 3.10.11, NumPy 2.2.6, PyTorch 2.13.0, and pytest 9.1.1; this is an observed environment, not a lockfile. Registered GPU runs used CUDA. The gallery opens without Python, TeX, or network access.
+Use Python 3.10–3.13. The local CPU verification environment was Python 3.10.11, NumPy 2.2.6, PyTorch 2.13.0, and pytest 9.1.1. `requirements.txt` pins the three package versions. Install them in a fresh environment from the extracted ZIP root:
+
+    python3 -m venv .venv
+    . .venv/bin/activate
+    python -m pip install -r requirements.txt
+
+The listed PyTorch wheel resolves from public PyPI for macOS arm64 on Python 3.10 and 3.13; Linux x86_64 has a corresponding wheel. These resolution checks do not establish runtime behavior on every platform. The registered GPU runs used CUDA and may need a platform-specific PyTorch installation. The gallery opens without Python, TeX, or network access.
 
     python3 scripts/release_manifest.py --check
     PYTHONPATH=scripts python3 -m cawm.train --help
