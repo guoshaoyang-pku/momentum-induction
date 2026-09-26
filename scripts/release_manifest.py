@@ -96,7 +96,7 @@ def text_leaks(path: Path) -> list[str]:
         return []
     # Check only formats likely to contain prose/paths.  Binary model weights
     # and corpora are hashed but never decoded as text.
-    if path.suffix.lower() not in {".md", ".txt", ".json", ".py", ".sh", ".toml", ".yaml", ".yml", ".ini", ".tex", ".csv"}:
+    if path.suffix.lower() not in {".md", ".txt", ".json", ".py", ".sh", ".toml", ".yaml", ".yml", ".ini", ".tex", ".csv", ".html", ".svg", ".js", ".css"}:
         return []
     try:
         value = path.read_text(encoding="utf-8")
