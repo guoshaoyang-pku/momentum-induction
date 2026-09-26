@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "generated_utc": "2026-09-26T08:42:18+00:00",
+  "generated_utc": "2026-09-26T09:05:22+00:00",
   "purpose": "public supplement release; curated code, pinned corpora, figures, and optional selected weights",
   "files": [
     {
@@ -700,8 +700,8 @@
     },
     {
       "path": "scripts/release_manifest.py",
-      "bytes": 7675,
-      "sha256": "c232c98400287ccf2058e091856dd7e29a1c102144f4605694f355950809b7cd"
+      "bytes": 7726,
+      "sha256": "0c2540f39ee0d7260e55e100961219d7b3881fbaf31ebed9d483116da4f47e68"
     },
     {
       "path": "scripts/tests/golden_bitcompat.json",

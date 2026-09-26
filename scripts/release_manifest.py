@@ -84,7 +84,8 @@ def iter_files() -> Iterable[Path]:
         if name == MANIFEST_NAME or name == ".git" or name.startswith(".git/"):
             continue
         # Finder metadata and Python caches are never release inputs.
-        if path.name == ".DS_Store" or "__pycache__" in path.parts or path.suffix == ".pyc":
+        if (path.name == ".DS_Store" or "__pycache__" in path.parts
+                or ".pytest_cache" in path.parts or path.suffix == ".pyc"):
             continue
         yield path
 
