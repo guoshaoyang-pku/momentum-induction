@@ -6,6 +6,8 @@ This package accompanies *Why Do Transformers and Diffusion Models Fail to Learn
 
 Open results/RESULTS.html in a browser. The page has nine selected paper figures, PNG previews, and vector PDFs. results/FIGURES.json records the image hashes. The included tables are:
 
+The two-metrics figure mixes teacher-forced pixel scores for most models with rollout pixel scores for the two diffusion rows, because the joint denoiser has no comparable one-step teacher-forced path. Its SeqAcc bars use rollout evaluation throughout. Interpret the grey pixel bars with that mode distinction.
+
 - results/data/e11_same_weights_8_calls.csv: same-denoiser joint versus frame-by-frame sampling at eight network calls, seeds 42/43/44, on 8 x 8 Game of Life and 16 x 16 billiards. This is a seed-level summary; the E11 checkpoints and per-world predictions are not bundled.
 - results/data/e21_selected_weights.csv and results/data/e21_depth_summary.json: strict L4B four-read checkpoint metrics and the full attention-depth summary.
 - results/data/e22_rows.csv: 24 audited raster-transformer position/tokenizer cells.
