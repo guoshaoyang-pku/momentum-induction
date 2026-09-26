@@ -57,8 +57,9 @@ def build_corpora(cache_dir, task, grid, l4v2=None):
         "l2_val_sc": get_corpus(cache_dir, f"l2_val_sc_g{grid}", n=2048,
                                 master_seed=43, half="train", grid=grid,
                                 self_consistent=True),
-        # legacy corpus (Bayes ceiling 0.8099) for continuity with historical
-        # logs; SC corpus (context self-consistent) is the clean primary
+        # Legacy unfiltered corpus retained for historical comparison. The
+        # older 0.8099 statistic is not an optimal SeqAcc ceiling; the SC
+        # corpus is the direct-evidence primary evaluation.
         "l3_zs": get_corpus(cache_dir, f"l3_zs_g{grid}", n=2048,
                             master_seed=44, half="zs", grid=grid),
         "l3_zs_sc": get_corpus(cache_dir, f"l3_zs_sc_g{grid}", n=2048,

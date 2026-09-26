@@ -91,8 +91,9 @@ def prefix_coverage(frames):
 def queried_slots_mask(frames):
     """Vectorized: slots exercised by the FUTURE transitions (source frames
     7..14) -> (B,18) bool. A slot queried but not covered in the prefix is
-    unpredictable for a zero-shot model (its rule bit is uniform under the
-    permutation split, so Bayes = 0.5 on those cells)."""
+    not determined by a direct prefix lookup. This mask records missing
+    evidence, not a Bayes error rate: a fixed train/test rule split can induce
+    dependencies among unobserved bits, and distinct rules can share a future."""
     B = frames.shape[0]
     H, W = frames.shape[2], frames.shape[3]
     x = frames[:, PREFIX_LEN - 1:TRAJ_LEN - 1]                # source frames 7..14
@@ -354,12 +355,15 @@ def build_eval_corpus(path, n, master_seed, half="zs", grid=8, l4=None,
     """Materialize a pinned eval corpus as .npz + .json (protocol tags + sha256).
 
     self_consistent=True turns on rejection sampling (protocol note
-    2026-08-30): keep a trajectory only if every slot QUERIED by the future
+    2026-08-30): keep a trajectory only if every slot QUERIED by its realized future
     transitions is covered by the prefix evidence (or belongs to
     prior_slots — L4's slot 9, whose value the rule family fixes by
     construction via apply_l4_bias, so it stays Bayes-predictable when
-    uncovered). Without this filter ~35% of trajectories contain 1-2 cells
-    whose true next state is independent of anything the model sees.
+    uncovered). The filter is evaluated during corpus construction from the
+    complete simulated trajectory, before model evaluation. It creates a
+    conditional benchmark of answerable worlds; the future is never supplied
+    as model input. Without it ~35% of trajectories query rule entries absent
+    from the prefix. This is not an information-theoretic SeqAcc bound.
 
     l4v2 (E6.2/E6.3): draw rules from the constrained family pool
     (R.l4v2_pool — split decided on the constrained rule, no preimage leak)

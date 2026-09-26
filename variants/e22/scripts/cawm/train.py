@@ -600,7 +600,9 @@ def main():
                                           grid=args.grid, self_consistent=True)
         # SC = context self-consistent (rejection sampled, protocol note
         # 2026-08-30): the clean primary. Legacy corpus kept for continuity
-        # with historical logs (its Bayes ceiling is 0.8099).
+        # with historical logs. The older 0.8099 statistic is mean posterior
+        # mass on realized futures under an independent-bit prior, not the
+        # optimal SeqAcc ceiling on this fixed held-out split.
         corpora["l3_zs"] = get_corpus(args.cache_dir, f"l3_zs_sc_g{args.grid}", n=2048,
                                       master_seed=44, half="zs", grid=args.grid,
                                       self_consistent=True)

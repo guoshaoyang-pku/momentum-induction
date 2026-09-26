@@ -1,12 +1,12 @@
 {
   "manifest_version": 1,
-  "generated_utc": "2026-09-26T09:06:35+00:00",
+  "generated_utc": "2026-09-26T09:50:20+00:00",
   "purpose": "public supplement release; curated code, pinned corpora, figures, and optional selected weights",
   "files": [
     {
       "path": "README.md",
-      "bytes": 7739,
-      "sha256": "2b66ada719486364fef5674a984ec6fac6af5f116ab87708cdd3562ed6cb2bc3"
+      "bytes": 10220,
+      "sha256": "a0bf43f1a702abb4d5a0cf02e7330948a5f3fff6db27b3b6379724c57c5d4fcb"
     },
     {
       "path": "conftest.py",
@@ -370,8 +370,8 @@
     },
     {
       "path": "results/RESULTS.html",
-      "bytes": 8954,
-      "sha256": "bf63a4e73a259e8b44784eab4b059b305f047d880dc967b657c9f8f09c5aa78e"
+      "bytes": 9442,
+      "sha256": "414e04c7bedfbaa431bcdd52d93cdac27689e9bbf5e4014202f0406049db8dad"
     },
     {
       "path": "results/data/e11_same_weights_8_calls.csv",
@@ -402,6 +402,11 @@
       "path": "results/data/lifegpt_seeds.csv",
       "bytes": 13740,
       "sha256": "a2b67046afcd3dcc62f206ac9c98646edca2780fb9035c14ef7c8ea360ebadc4"
+    },
+    {
+      "path": "results/data/two_metrics_l3_seeds.csv",
+      "bytes": 1707,
+      "sha256": "fb52b08029b732790e2134cb7f3fbbc8286f52e9eae63d7241df03cab1e4fee1"
     },
     {
       "path": "results/figures/depth_and_stride.pdf",
@@ -515,8 +520,8 @@
     },
     {
       "path": "scripts/cawm/data.py",
-      "bytes": 20559,
-      "sha256": "98dddbae241b64a29af16131b66a48c3df944c2f4277a417f7c106ca54dfac53"
+      "bytes": 20900,
+      "sha256": "0487f43632bf6c5ed8386ebb48bcb759a3884ef09816d74bc4199ffaaf259f5b"
     },
     {
       "path": "scripts/cawm/eval.py",
@@ -625,18 +630,28 @@
     },
     {
       "path": "scripts/cawm/train.py",
-      "bytes": 56813,
-      "sha256": "721ca30e38c6385acfe285f4fb5f2d3231c5587777b8f801e6b27a3230d6f9d1"
+      "bytes": 56966,
+      "sha256": "43bb4d54650d8952f1f0302ec12db797c35c3e4b1841ab9dedf46705fc23cf62"
     },
     {
       "path": "scripts/cawm/watch_eval.py",
-      "bytes": 7717,
-      "sha256": "6ed2afba044306495e624552af1d214ad5ae65f513ab4f94253e03c00fac5847"
+      "bytes": 7775,
+      "sha256": "700e22b37e1a2c5360f3b40d3ebd748193bae41638b1c53e9d4aa42b5161fb8b"
     },
     {
       "path": "scripts/diagnose_structured.py",
       "bytes": 9123,
       "sha256": "25497898baf4dd75266107f66a6928548d40a68b8544243908d4cdfaa1e6fec0"
+    },
+    {
+      "path": "scripts/eval_lifegpt.py",
+      "bytes": 12595,
+      "sha256": "8cd8730e79393a187e74c42c45d81c53a51695f797c1aef600a664f2db00755f"
+    },
+    {
+      "path": "scripts/eval_order_profile.py",
+      "bytes": 17907,
+      "sha256": "d55b2514007739e1e1e24d39cf31b13bb89cc742b943be1bde44382171228e2f"
     },
     {
       "path": "scripts/make_zip.py",
@@ -702,6 +717,11 @@
       "path": "scripts/release_manifest.py",
       "bytes": 7758,
       "sha256": "540ca416a8c8fc91d2472a3e0bbac4c9e0392132cbf7339bf77a6227e0cbb526"
+    },
+    {
+      "path": "scripts/reproduce_e21.py",
+      "bytes": 3009,
+      "sha256": "54ade4ac39a7ab407d2930a8eb4c8a3584192b7c08e0566c7d6e628ee701e11b"
     },
     {
       "path": "scripts/tests/golden_bitcompat.json",
@@ -870,8 +890,8 @@
     },
     {
       "path": "scripts/tests/test_recipe_v2.py",
-      "bytes": 7764,
-      "sha256": "04ac3afa07907f3b3984886c780d949293be1320419751072f8b2a3cd4bc0c56"
+      "bytes": 7970,
+      "sha256": "8da17fdc08e5b84089ea67446205dc273b756e01629dedff99fa92abfdb5b9ff"
     },
     {
       "path": "scripts/tests/test_sc_stream.py",
@@ -885,8 +905,8 @@
     },
     {
       "path": "scripts/verify_results.py",
-      "bytes": 2468,
-      "sha256": "0ac0416216e393f1aee729ac494748170a7977c7bf4cb2bd5227d54e886f3fd5"
+      "bytes": 3147,
+      "sha256": "5c1a0e7c2bce3a4c44e81c75a93792cdac898fc8076ac59eb5452718287ebce7"
     },
     {
       "path": "variants/e22/conftest.py",
@@ -910,8 +930,8 @@
     },
     {
       "path": "variants/e22/scripts/cawm/data.py",
-      "bytes": 20559,
-      "sha256": "98dddbae241b64a29af16131b66a48c3df944c2f4277a417f7c106ca54dfac53"
+      "bytes": 20900,
+      "sha256": "0487f43632bf6c5ed8386ebb48bcb759a3884ef09816d74bc4199ffaaf259f5b"
     },
     {
       "path": "variants/e22/scripts/cawm/eval.py",
@@ -1005,13 +1025,13 @@
     },
     {
       "path": "variants/e22/scripts/cawm/train.py",
-      "bytes": 50154,
-      "sha256": "23ca69c12f7cd6fdbf4fa19f7dc19e6042d0022ae196f947903a14a70196f99f"
+      "bytes": 50307,
+      "sha256": "1df2781ec49e5792f96bd15bf5c6f4421c849c450db1ac8c7f0c446de1b52cbf"
     },
     {
       "path": "variants/e22/scripts/cawm/watch_eval.py",
-      "bytes": 7717,
-      "sha256": "6ed2afba044306495e624552af1d214ad5ae65f513ab4f94253e03c00fac5847"
+      "bytes": 7775,
+      "sha256": "700e22b37e1a2c5360f3b40d3ebd748193bae41638b1c53e9d4aa42b5161fb8b"
     },
     {
       "path": "variants/e22/scripts/diag_e12_rope_seam.py",
