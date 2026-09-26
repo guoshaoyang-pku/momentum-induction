@@ -1,0 +1,22 @@
+{
+ "n": 2048,
+ "master_seed": 44,
+ "half": "zs",
+ "grid": 16,
+ "l4": [
+  9,
+  1,
+  1.0
+ ],
+ "rule_override": null,
+ "full_coverage_only": false,
+ "self_consistent": true,
+ "prior_slots": [
+  9
+ ],
+ "l4v2": null,
+ "require_exercised": false,
+ "draws": 2304,
+ "sha256": "b7be1d539074d8abd5061f5e294bf71dfe53e0d8d078ef0c2bfeb20c57c81604",
+ "protocol": "post-submission regenerated (seed=42 split), hash-split protocol"
+}

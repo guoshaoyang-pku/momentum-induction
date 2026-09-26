@@ -1,0 +1,16 @@
+{
+ "n": 2048,
+ "master_seed": 44,
+ "half": "zs",
+ "grid": 8,
+ "l4": [
+  9,
+  1,
+  1.0
+ ],
+ "full_coverage_only": false,
+ "rejection": "context self-consistency: output-queried slots must be prefix-covered (exempt prior slots [9])",
+ "draws": 2865,
+ "sha256": "83074f1669ceb855eb447a6333fce6bb3f934ff8285d2d1d30017caba5d9153a",
+ "protocol": "post-submission regenerated (seed=42 split), hash-split"
+}

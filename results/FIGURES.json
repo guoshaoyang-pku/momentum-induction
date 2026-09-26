@@ -1,0 +1,59 @@
+{
+  "scope": "Selected manuscript figures; E27 main matrix excluded pending completion",
+  "figures": [
+    {
+      "name": "three_properties",
+      "source_pdf_sha256": "78cccfba8d709aa079da88199a66596868d0b36d16f452d68c027a583f34bad1",
+      "pdf_sha256": "78cccfba8d709aa079da88199a66596868d0b36d16f452d68c027a583f34bad1",
+      "png_sha256": "f0782ddbcf9eda38756f3a07863a268cd6c6c89ef0ac23189b5bee97a936a336"
+    },
+    {
+      "name": "task_and_information_flow",
+      "source_pdf_sha256": "fe94d605fe03c9458251ac481686d1452ca8d2b745abb79b26a1ddf9c0ed5797",
+      "pdf_sha256": "fe94d605fe03c9458251ac481686d1452ca8d2b745abb79b26a1ddf9c0ed5797",
+      "png_sha256": "b84068f8c9e8c0399872c6e42eac938b4603a2066f1111b2ccf8b13d5ab7fc31"
+    },
+    {
+      "name": "two_metrics",
+      "source_pdf_sha256": "cb33f784862cc63337cedf199638f717d1f5c4be7a9718d3cf4cf4f0f1d45d48",
+      "pdf_sha256": "cb33f784862cc63337cedf199638f717d1f5c4be7a9718d3cf4cf4f0f1d45d48",
+      "png_sha256": "d05bc5d04a174a779f74adce66abb49c7b5d2936724ba9d30044430d654cbfd5"
+    },
+    {
+      "name": "two_inductions",
+      "source_pdf_sha256": "185563277d9b48cb1bdb03eb3c6dea402bf4221a583d9dcd8babe92f4d4576c2",
+      "pdf_sha256": "185563277d9b48cb1bdb03eb3c6dea402bf4221a583d9dcd8babe92f4d4576c2",
+      "png_sha256": "5d5344f0ab3ca9fa7d257e52afdf041c283bcbc28fa77bf162a309f4169dc93e"
+    },
+    {
+      "name": "sampling_comparison",
+      "source_pdf_sha256": "9ffa595c81e65aad4dd8562e5b606af4ac1debceff3bbf78de990e267e7df60b",
+      "pdf_sha256": "9ffa595c81e65aad4dd8562e5b606af4ac1debceff3bbf78de990e267e7df60b",
+      "png_sha256": "decd93dd0f5dd4d62782d37bb159a44e3b791e216c4798bee93a1f12a18261e7"
+    },
+    {
+      "name": "depth_and_stride",
+      "source_pdf_sha256": "9c72e0b466211c6c4bf163cf8df54e6d91b7b274c1db75e88f51acffc4aaeae4",
+      "pdf_sha256": "9c72e0b466211c6c4bf163cf8df54e6d91b7b274c1db75e88f51acffc4aaeae4",
+      "png_sha256": "29c120608f7e0e33f34d74539cb196829863642fceccf332a7e418487ed85d38"
+    },
+    {
+      "name": "design_space_convolution",
+      "source_pdf_sha256": "320c5661f40ad2c15c071a7b573a36ac7240ad51f4ba6bdc61e7b51866c2af2e",
+      "pdf_sha256": "320c5661f40ad2c15c071a7b573a36ac7240ad51f4ba6bdc61e7b51866c2af2e",
+      "png_sha256": "05f68d6941c36db56fd164bd86aa91a59d5ff296adb9be1e6f75b22fded7d1cf"
+    },
+    {
+      "name": "design_space_attention",
+      "source_pdf_sha256": "54e07bab38d48a2d4d0475e272e40f3bb846aca19907c136e3150a6f2ed68e19",
+      "pdf_sha256": "54e07bab38d48a2d4d0475e272e40f3bb846aca19907c136e3150a6f2ed68e19",
+      "png_sha256": "770f5d91fa05fcc47d897fb6a33ef340deb2a8effd51be4bc7d5064d72e4ae0d"
+    },
+    {
+      "name": "design_space_diffusion",
+      "source_pdf_sha256": "87d7d6147f1c9d69a60f055348fe31e836cfbb0b715e7d87ff221a40976cd825",
+      "pdf_sha256": "87d7d6147f1c9d69a60f055348fe31e836cfbb0b715e7d87ff221a40976cd825",
+      "png_sha256": "03aad683f571c2576f58999e6cfb598c6ca803709cd732c4a5a51f6ed2c9a0f4"
+    }
+  ]
+}

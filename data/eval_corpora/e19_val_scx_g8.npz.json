@@ -1,0 +1,10 @@
+{
+  "master_seed": 1947,
+  "half": "train",
+  "n": 768,
+  "l4v2": "l4b",
+  "self_consistent": true,
+  "require_exercised": true,
+  "excluded_pool_duplicates": 0,
+  "sha256": "f980fff293bcccbeb176d9708f010427c807a324094b0c0a9d6404c57dafbf8e"
+}
