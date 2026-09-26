@@ -6,12 +6,12 @@ This package accompanies *Why Do Transformers and Diffusion Models Fail to Learn
 
 Open results/RESULTS.html in a browser. The page has nine selected paper figures, PNG previews, and vector PDFs. results/FIGURES.json records the image hashes. The included tables are:
 
-- results/data/e11_same_weights_8_calls.csv: same-denoiser joint versus frame-by-frame sampling at eight network calls, seeds 42/43/44, on Game of Life and billiards.
+- results/data/e11_same_weights_8_calls.csv: same-denoiser joint versus frame-by-frame sampling at eight network calls, seeds 42/43/44, on 8 x 8 Game of Life and 16 x 16 billiards. This is a seed-level summary; the E11 checkpoints and per-world predictions are not bundled.
 - results/data/e21_selected_weights.csv and results/data/e21_depth_summary.json: strict L4B four-read checkpoint metrics and the full attention-depth summary.
 - results/data/e22_rows.csv: 24 audited raster-transformer position/tokenizer cells.
 - results/data/lifegpt_seeds.csv and results/data/e20_lifegpt_l4_seeds.csv: faithful raster LifeGPT seed data.
 
-The current E27 full main matrix is absent because its audit has not completed. Figure scores are from fresh post-submission hash-split runs, not legacy submission numbers. The E11 comparison gives 42.25% joint and 99.93% frame-by-frame Game of Life SeqAcc across three seeds. The two samplers use the same trained weights within each seed.
+The current E27 full main matrix is absent because its audit has not completed. Figure scores are from fresh post-submission hash-split runs, not legacy submission numbers. The E11 comparison gives 42.25% joint and 99.93% frame-by-frame Game of Life SeqAcc across three seeds. The two samplers use the same trained weights within each seed and eight network calls per rollout; the comparison changes sampling order, noise updates, and commitment together.
 
 ## Environment and quick checks
 
@@ -32,7 +32,7 @@ The manifest check verifies every shipped file and all corpus sidecar hashes. Th
 
 ## Task and data protocol
 
-Each rule is an 18-bit outer-totalistic transition table. A permutation seeded by 42 splits all 262,144 rules into disjoint training and zero-shot halves. The main task uses an 8 x 8 toroidal grid, eight observed frames, and eight future frames. The training stream is index-addressed with data seed 42; the model seed is separate. L1 is a fixed Game of Life rule. L23 trains on training-half rules: L2 evaluates new trajectories from that half, and L3 evaluates held-out rules. L4 adds a specified family constraint and tests a needed inference when direct evidence is silent.
+Each CA rule is an 18-bit outer-totalistic transition table. A permutation seeded by 42 splits all 262,144 rules into disjoint training and zero-shot halves. The main CA task uses an 8 x 8 toroidal grid, eight observed frames, and eight future frames. The separate billiards comparison uses 16 x 16 grids. The training stream is index-addressed with data seed 42; the model seed is separate. L1 is a fixed Game of Life rule. L23 trains on training-half rules: L2 evaluates new trajectories from that half, and L3 evaluates held-out rules. L4 adds a specified family constraint and tests a needed inference when direct evidence is silent.
 
 Self-consistent corpora exclude queries that the observations and registered constraint cannot answer. The primary L1 corpus has 512 trajectories. L2 and L3 primary corpora have 2,048 each. The strict L4B validation and test corpora each have 768 trajectories that exercise the relational constraint; the test is on held-out rules. Every supplied .npz has a .npz.json sidecar with its SHA-256 and sampling seed. The label for these corpora is post-submission regenerated (seed=42 rule split), hash-split protocol, grid 8.
 
