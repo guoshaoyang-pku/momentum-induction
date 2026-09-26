@@ -1,33 +1,8 @@
 {
   "manifest_version": 1,
-  "generated_utc": "2026-09-26T08:29:28+00:00",
+  "generated_utc": "2026-09-26T08:36:54+00:00",
   "purpose": "public supplement release; curated code, pinned corpora, figures, and optional selected weights",
   "files": [
-    {
-      "path": ".pytest_cache/.gitignore",
-      "bytes": 37,
-      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
-    },
-    {
-      "path": ".pytest_cache/CACHEDIR.TAG",
-      "bytes": 191,
-      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
-    },
-    {
-      "path": ".pytest_cache/README.md",
-      "bytes": 302,
-      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
-    },
-    {
-      "path": ".pytest_cache/v/cache/lastfailed",
-      "bytes": 168,
-      "sha256": "9039324d845171db395576f29f5e5fe8d0bc9d1dc377ff36b8712df36c687b3a"
-    },
-    {
-      "path": ".pytest_cache/v/cache/nodeids",
-      "bytes": 17142,
-      "sha256": "f5441567d0a1fa034df32956930736c98e41d5c3103ed27c441d42b16e4813de"
-    },
     {
       "path": "README.md",
       "bytes": 7729,
