@@ -40,9 +40,9 @@ Self-consistent corpora exclude queries that the observations and registered con
 
 The six weights/ files are final E21 EMA checkpoints: three seeds of the ordinary-loss 3D-convolution pairing model and three seeds of the KV-shift model with a training-only evidence-balanced loss. Each checkpoint hash is in results/data/e21_selected_weights.csv. The task-aware evidence labels were never model inputs. Run the following on the strict 768-world L4B test corpus, then repeat with each checkpoint filename listed in the CSV:
 
-    PYTHONPATH=scripts python3 scripts/diagnose_structured.py --checkpoint weights/e21_art_L4b_ex10_r4_s42.pt --corpus l4b_zs_scx_g8 --device cpu --batch 64 --out /tmp/e21_art_s42_eval.json
+    PYTHONPATH=scripts python3 scripts/reproduce_e21.py --device cpu --batch 64
 
-Compare metrics.seq_acc in the generated JSON with the CSV. The bundled ART seed-42 weight reproduced 1.0 SeqAcc on CPU during release preparation. Different kernels can change borderline predictions, so record hardware and library versions for a rerun. The checkpoint contains the original training args, optimizer state, and EMA weights. Only final EMA weights are used for this evaluation.
+This command checks checkpoint and corpus hashes, re-evaluates all six checkpoints, and compares each SeqAcc with the CSV. It uses temporary files by default; pass --output-dir PATH to retain the per-world predictions and audit JSON. All six weights reproduced their listed scores exactly on the stated CPU environment during release preparation. Different kernels can change borderline predictions, so record hardware and library versions for a rerun. Each checkpoint contains the original training args, optimizer state, and EMA weights. Only final EMA weights are used for this evaluation.
 
 ## Re-run selected training arms
 
