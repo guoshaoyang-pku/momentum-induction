@@ -1,0 +1,83 @@
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage{times}
+\begin{document}
+\begin{tikzpicture}[x=1pt,y=-1pt,every node/.style={font=\fontsize{8}{9}\selectfont,inner sep=0pt}]
+\path[use as bounding box] (0,0) rectangle (158.4,220);
+\definecolor{pc}{HTML}{D9D9D9}
+\definecolor{standardbadge}{HTML}{8C8C8C}
+\definecolor{structuredbadge}{HTML}{55A868}
+\definecolor{shiftbadge}{HTML}{2E9AA8}
+\definecolor{conv}{HTML}{5B8AC6}
+\definecolor{attention}{HTML}{D9641C}
+\definecolor{diffusion}{HTML}{3F9A63}
+\fill[pc] (2,5) rectangle (9,10);
+\node[anchor=west] at (13,7.5) {Pixel-level accuracy (L3)};
+\fill[conv] (2,17) rectangle (9,22);
+\node[anchor=west] at (13,19.5) {Sequence-level accuracy (L3)};
+\draw[black!14,line width=.35pt] (99.5,28) -- (99.5,196);
+\draw[black!14,line width=.35pt] (112.0,28) -- (112.0,196);
+\draw[black!14,line width=.35pt] (124.5,28) -- (124.5,196);
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont] (name) at (2,33) {NCA (growing)};
+\fill[pc] (87,28.5) rectangle (125.573333,37.5);
+\fill[conv] (87,28.5) rectangle (93.308333,37.5);
+\node[anchor=west,font=\fontsize{7.5}{8}\selectfont] at (94.808333,33) {12.6};
+\node[anchor=west,text=black!65,font=\fontsize{7.5}{8}\selectfont] at (140,33) {77.1};
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont] (name) at (2,48) {standard CNN};
+\node[circle,fill=standardbadge,text=white,minimum size=7pt,font=\fontsize{5.4}{6}\selectfont\bfseries,anchor=west] at ([xshift=2pt]name.east) {a};
+\fill[pc] (87,43.5) rectangle (135.176667,52.5);
+\fill[conv] (87,43.5) rectangle (96.488333,52.5);
+\node[anchor=west,font=\fontsize{7.5}{8}\selectfont] at (97.988333,48) {18.9};
+\node[anchor=west,text=black!65,font=\fontsize{7.5}{8}\selectfont] at (140,48) {96.3};
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont\bfseries] (name) at (2,63) {3D-conv CNN};
+\node[circle,fill=structuredbadge,text=white,minimum size=7pt,font=\fontsize{5.4}{6}\selectfont\bfseries,anchor=west] at ([xshift=2pt]name.east) {b};
+\fill[pc] (87,58.5) rectangle (136.998887,67.5);
+\fill[conv] (87,58.5) rectangle (136.886068,67.5);
+\node[anchor=east,text=white,font=\fontsize{7.5}{8}\selectfont] at (135.886068,63) {99.7};
+\node[anchor=west,text=black!65,font=\fontsize{7.5}{8}\selectfont] at (140,63) {99.9};
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont] (name) at (2,83) {Burtsev 1-D\\transformer};
+\fill[pc] (87,78.5) rectangle (133.376667,87.5);
+\fill[attention] (87,78.5) rectangle (88.993333,87.5);
+\node[anchor=west,font=\fontsize{7.5}{8}\selectfont] at (90.493333,83) {3.9};
+\node[anchor=west,text=black!65,font=\fontsize{7.5}{8}\selectfont] at (140,83) {92.7};
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont] (name) at (2,99) {AutomataGPT};
+\fill[pc] (87,94.5) rectangle (133.783333,103.5);
+\fill[attention] (87,94.5) rectangle (95.120000,103.5);
+\node[anchor=west,font=\fontsize{7.5}{8}\selectfont] at (96.620000,99) {16.2};
+\node[anchor=west,text=black!65,font=\fontsize{7.5}{8}\selectfont] at (140,99) {93.5};
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont] (name) at (2,116) {LifeGPT (4$\times$128)};
+\fill[pc] (87,111.5) rectangle (136.935007,120.5);
+\fill[attention] (87,111.5) rectangle (119.128906,120.5);
+\node[anchor=east,text=white,font=\fontsize{7.5}{8}\selectfont] at (118.128906,116) {64.2};
+\node[anchor=west,text=black!65,font=\fontsize{7.5}{8}\selectfont] at (140,116) {99.8};
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont\bfseries] (name) at (2,133) {KV-shift\\transformer};
+\node[circle,fill=shiftbadge,text=white,minimum size=7pt,font=\fontsize{5.4}{6}\selectfont\bfseries,anchor=west] at ([xshift=2pt]name.east) {e};
+\fill[pc] (87,128.5) rectangle (137.000000,137.5);
+\fill[attention] (87,128.5) rectangle (137.000000,137.5);
+\node[anchor=east,text=white,font=\fontsize{7.5}{8}\selectfont] at (136.000000,133) {100};
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont] (name) at (2,151) {Diff-NCA};
+\fill[pc] (87,146.5) rectangle (126.555000,155.5);
+\fill[diffusion] (87,146.5) rectangle (94.405000,155.5);
+\node[anchor=west,font=\fontsize{7.5}{8}\selectfont] at (95.905000,151) {14.8};
+\node[anchor=west,text=black!65,font=\fontsize{7.5}{8}\selectfont] at (140,151) {79.1};
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont] (name) at (2,166) {standard diffusion};
+\node[circle,fill=standardbadge,text=white,minimum size=7pt,font=\fontsize{5.4}{6}\selectfont\bfseries,anchor=west] at ([xshift=2pt]name.east) {g};
+\fill[pc] (87,161.5) rectangle (117.993333,170.5);
+\fill[diffusion] (87,161.5) rectangle (87.000000,170.5);
+\node[anchor=west,font=\fontsize{7.5}{8}\selectfont] at (88.500000,166) {0.0};
+\node[anchor=west,text=black!65,font=\fontsize{7.5}{8}\selectfont] at (140,166) {61.9};
+\node[anchor=west,align=left,font=\fontsize{7.5}{8.5}\selectfont\bfseries] (name) at (2,185) {causal-freezing\\diffusion};
+\node[circle,fill=structuredbadge,text=white,minimum size=7pt,font=\fontsize{5.4}{6}\selectfont\bfseries,anchor=west] at ([xshift=2pt]name.east) {h};
+\fill[pc] (87,180.5) rectangle (136.960772,189.5);
+\fill[diffusion] (87,180.5) rectangle (136.698893,189.5);
+\node[anchor=east,text=white,font=\fontsize{7.5}{8}\selectfont] at (135.698893,185) {99.4};
+\node[anchor=west,text=black!65,font=\fontsize{7.5}{8}\selectfont] at (140,185) {99.9};
+\draw[line width=.5pt] (87,28) -- (87,196) -- (137,196);
+\draw[black!65,line width=.55pt,densely dotted] (137,28) -- (137,196);
+\draw[line width=.5pt] (87.0,196) -- (87.0,199);\node[anchor=north] at (87.0,202) {0};
+\draw[line width=.5pt] (112.0,196) -- (112.0,199);\node[anchor=north] at (112.0,202) {50};
+\draw[line width=.5pt] (137.0,196) -- (137.0,199);\node[anchor=north] at (137.0,202) {100};
+\draw[line width=.35pt] (99.5,196) -- (99.5,198);
+\draw[line width=.35pt] (124.5,196) -- (124.5,198);
+\node[anchor=north] at (112,213) {Accuracy (\%)};
+\end{tikzpicture}
+\end{document}

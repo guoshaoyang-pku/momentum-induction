@@ -1,0 +1,130 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{metacircle}[2026/09/29 Tsinghua and Meta Circle paper template]
+
+\RequirePackage[a4paper,top=2.25cm,bottom=2.2cm,left=2.35cm,right=2.35cm]{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{iftex}
+\ifPDFTeX
+  \PackageError{metacircle}{Funnel Display requires XeLaTeX or LuaLaTeX}
+    {Select XeLaTeX in Overleaf's compiler settings.}
+  \expandafter\endinput
+\fi
+\RequirePackage[no-math]{fontspec}
+\newfontfamily\MetaCircleFont{FunnelDisplay-Medium.ttf}[Path=fonts/]
+\RequirePackage{xurl}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+\RequirePackage{amsmath,amssymb,mathtools}
+\RequirePackage{booktabs}
+\RequirePackage{microtype}
+\RequirePackage{hyperref}
+\RequirePackage{authblk}
+\RequirePackage{etoolbox}
+\RequirePackage{caption}
+\RequirePackage{lastpage}
+\RequirePackage[most]{tcolorbox}
+
+\definecolor{MetaPurple}{HTML}{6D3BD1}
+\definecolor{MetaViolet}{HTML}{9B5DE5}
+\definecolor{MetaCoral}{HTML}{D76A7A}
+\definecolor{MetaInk}{HTML}{16131D}
+\definecolor{MetaGray}{HTML}{F4F2F7}
+\definecolor{MetaMidGray}{HTML}{6E6875}
+\definecolor{MetaLink}{HTML}{6D3BD1}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=MetaLink,
+  citecolor=MetaLink,
+  urlcolor=MetaLink,
+  pdfborder={0 0 0}
+}
+
+\setlength{\parindent}{1.15em}
+\setlength{\parskip}{0pt}
+\setlist{nosep,leftmargin=1.4em}
+\captionsetup{font=small,labelfont=bf}
+
+\titleformat{\section}{\large\bfseries\color{MetaInk}}{\thesection.}{0.55em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{MetaInk}}{\thesubsection}{0.55em}{}
+\titlespacing*{\section}{0pt}{1.1em}{0.45em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.35em}
+
+% Tsinghua's visible seal is wider than the official 9 mm minimum.
+\newcommand{\TsinghuaLogo}{%
+  \includegraphics[height=9.5mm]{tsinghua_badge_color_official.pdf}%
+}
+% Live, selectable text in the bundled Medium (500) font.
+\newcommand{\MetaCircleLogo}{%
+  {\MetaCircleFont\fontsize{22}{26}\selectfont\color{black}MetaCircle}%
+}
+\newcommand{\PaperLogos}{%
+  \TsinghuaLogo\hspace{3mm}\raisebox{2.1mm}{\MetaCircleLogo}%
+}
+
+\newcommand{\paperdate}[1]{\def\@paperdate{#1}}
+\newcommand{\@paperdate}{\today}
+\newcommand{\papertype}[1]{\def\@papertype{#1}}
+\newcommand{\@papertype}{Research Paper}
+\newcommand{\projecturl}[1]{\def\@projecturl{#1}}
+\newcommand{\@projecturl}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\raisebox{3.4mm}{\small\itshape\@paperdate}}
+\fancyfoot[C]{\footnotesize\color{MetaMidGray}\thepage\ / \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{34pt}
+\setlength{\headsep}{18pt}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+  \fancyhead[L]{\PaperLogos}
+  \fancyhead[R]{\raisebox{3.4mm}{\small\itshape\@paperdate}}
+  \fancyfoot[C]{\footnotesize\color{MetaMidGray}\thepage\ / \pageref*{LastPage}}
+  \renewcommand{\headrulewidth}{0.5pt}
+}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begingroup
+  \renewcommand{\thefootnote}{\@fnsymbol\c@footnote}%
+  \thispagestyle{firstpage}
+  \vspace*{0.05cm}
+  {\noindent\small\sffamily\bfseries\color{MetaPurple}\MakeUppercase{\@papertype}\par}
+  \vspace{0.4em}
+  {\noindent\LARGE\bfseries\color{MetaInk}\@title\par}
+  \vspace{0.75em}
+  {\noindent\normalsize\@author\par}
+  \ifdefempty{\@date}{}{%
+    \vspace{0.5em}
+    {\noindent\small\color{MetaMidGray}\@date\par}%
+  }
+  \@thanks
+  \endgroup
+  \setcounter{footnote}{0}%
+  \global\let\@thanks\@empty
+  \vspace{0.5em}
+}
+\newcommand{\metaprojectline}{%
+  \ifdefempty{\@projecturl}{}{\par\vspace{0.8em}\centering\textit{Project page: }\href{\@projecturl}{\expandafter\nolinkurl\expandafter{\@projecturl}}}%
+}
+\makeatother
+
+\newtcolorbox{metaabstract}{
+  breakable,
+  colback=MetaGray,
+  colframe=MetaGray,
+  boxrule=0pt,
+  arc=4mm,
+  boxsep=0pt,
+  left=3mm,right=3mm,top=2.5mm,bottom=2.5mm,
+  width=\textwidth,
+  center,
+  after upper={\metaprojectline}
+}
+
+\newcommand{\keywords}[1]{\par\noindent\textbf{Keywords:} #1}
