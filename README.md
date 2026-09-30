@@ -1,6 +1,6 @@
 # Cellular automata world models: code and results supplement
 
-This package accompanies *Why Do Transformers and Diffusion Models Fail to Learn Cellular Automata?* It contains the CA simulator and models, 34 checksum-verified evaluation corpora, an offline result gallery, seed-level tables, and six selected E21 checkpoints. All commands below run from the extracted ZIP root.
+This package accompanies *Why Do Conventional World Models Fail to Learn Cellular Automata?* It contains the CA simulator and models, 34 checksum-verified evaluation corpora, an offline result gallery, seed-level tables, and six selected E21 checkpoints. All commands below run from the extracted ZIP root. The MetaCircle-branded paper (compiled PDF and LaTeX source) is under `paper/`; this release tree is the project page.
 
 ## See the results
 
@@ -60,6 +60,6 @@ Other displayed comparisons used their own recorded training code versions and r
 
 ## Scope
 
-The supplied six weights and pinned corpus permit re-evaluating a complete three-seed slice of the E21 L4B result. The tables and gallery let readers inspect selected reported outcomes; plotted-value tables do not replace raw predictions or checkpoints for the other figures. A full paper reproduction needs suitable GPUs and all registered training and evaluation arms, including negative results. This curated ZIP is anonymous submission material and does not contain the entire research codebase or every result artifact. No license is asserted here; redistribution terms must be supplied by the authors before a public source-code release.
+The supplied six weights and pinned corpus permit re-evaluating a complete three-seed slice of the E21 L4B result. The tables and gallery let readers inspect selected reported outcomes; plotted-value tables do not replace raw predictions or checkpoints for the other figures. A full paper reproduction needs suitable GPUs and all registered training and evaluation arms, including negative results. This curated release does not contain the entire research codebase or every result artifact. The code and results in this repository are released under the MIT License; see LICENSE.
 
 For a dependency-free check of the bundled summaries, weights, and figure hashes, run python3 scripts/verify_results.py. requirements.txt records the observed CPU test environment. python3 scripts/make_zip.py checks the manifest and creates a deterministic ZIP beside this directory.
