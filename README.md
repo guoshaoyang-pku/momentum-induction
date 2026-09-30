@@ -2,7 +2,11 @@
 
 Reproduction codebase and project page. Scored per pixel, conventional world models look nearly solved; scored per exact rollout, they fail. This repository reproduces the three failure modes — spatial locality, temporal locality, and temporal stability — and the minimal change that repairs each.
 
-[Paper PDF](paper/main.pdf) · [Branded LaTeX source](paper/main.tex) · [Result gallery](results/RESULTS.html) · [MIT License](LICENSE)
+<p align="center">
+  <a href="paper/main.pdf"><img src="https://img.shields.io/badge/Paper-PDF-B31B1B?style=flat-square" alt="Paper"></a>
+  <a href="https://github.com/guoshaoyang-pku/momentum-induction"><img src="https://img.shields.io/badge/Code-Release-245D80?style=flat-square" alt="Code"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-2F7565?style=flat-square" alt="MIT License"></a>
+</p>
 
 ## Main figures and conclusions
 
