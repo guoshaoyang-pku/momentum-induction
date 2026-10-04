@@ -1,12 +1,17 @@
 {
   "manifest_version": 1,
-  "generated_utc": "2026-09-26T09:50:20+00:00",
+  "generated_utc": "2026-10-04T13:20:46+00:00",
   "purpose": "public supplement release; curated code, pinned corpora, figures, and optional selected weights",
   "files": [
     {
+      "path": "LICENSE",
+      "bytes": 1088,
+      "sha256": "d52eb17b6b4b6bf2013126ca89e7a7951f073b9c7404abd3676fff264c6770ea"
+    },
+    {
       "path": "README.md",
-      "bytes": 10220,
-      "sha256": "a0bf43f1a702abb4d5a0cf02e7330948a5f3fff6db27b3b6379724c57c5d4fcb"
+      "bytes": 4996,
+      "sha256": "4ee25093bb979b20c40e933410a7de77a41ee67abb43f1b0ed9b2f36d7444842"
     },
     {
       "path": "conftest.py",
@@ -354,6 +359,226 @@
       "sha256": "2feaad092272f3f51ca3e97518cfdfa509db7865b6eb4de3f25fc74d6a535faa"
     },
     {
+      "path": "paper/figs/appendix_billiards_heatmap.pdf",
+      "bytes": 28830,
+      "sha256": "aa58ce51a58f7a61aeacf0db6c078058bc9cf9f2162fef136b4e3886e71de820"
+    },
+    {
+      "path": "paper/figs/appendix_e14_heatmap.pdf",
+      "bytes": 30679,
+      "sha256": "4118b3163d30d2b1d6e6e372e1e1d6bbc9b056fc1cdb69cef35510c91a0c7673"
+    },
+    {
+      "path": "paper/figs/appendix_l4_heatmap.pdf",
+      "bytes": 29846,
+      "sha256": "20a46cea907c4a6c796b2a15526b130c422819fc885c2914846bfb03e785e56f"
+    },
+    {
+      "path": "paper/figs/badges/a.pdf",
+      "bytes": 11081,
+      "sha256": "a056947084d56009355b7edd1427fa8ff579a9e52e36d2a07e311ee0f076efd5"
+    },
+    {
+      "path": "paper/figs/badges/b.pdf",
+      "bytes": 10806,
+      "sha256": "7660f44dd62556b627a05590e41a5378b576488b9f69997d7884538c4579fdd9"
+    },
+    {
+      "path": "paper/figs/badges/c.pdf",
+      "bytes": 10701,
+      "sha256": "04a45050a285f9d2dcf8e860153c2b3667f2608be1b9b37658a9e8917e7ce04e"
+    },
+    {
+      "path": "paper/figs/badges/d.pdf",
+      "bytes": 10862,
+      "sha256": "bbdf81346d6848ca44998f51cd44594922057663c931fe6babd3d0c45c9d6cb9"
+    },
+    {
+      "path": "paper/figs/badges/e.pdf",
+      "bytes": 10767,
+      "sha256": "3a2382e0a0f52b261be1787de86467dd150461648379eeded7f10d5010a11470"
+    },
+    {
+      "path": "paper/figs/badges/f.pdf",
+      "bytes": 10783,
+      "sha256": "a123444d4fcb45e8822feb7cce7c03a2bf2ddb5f08933b05734145a701270c4b"
+    },
+    {
+      "path": "paper/figs/badges/g.pdf",
+      "bytes": 10964,
+      "sha256": "1f69cad91ada3cba2f5cbab7f5cf673e679ed70cafdef6436e3c2a30aff295ea"
+    },
+    {
+      "path": "paper/figs/badges/h.pdf",
+      "bytes": 10876,
+      "sha256": "eb3aec0c4bcc70dc096f67c90233e71ba2636549044704ea8ce495c6711139f0"
+    },
+    {
+      "path": "paper/figs/badges/hp.pdf",
+      "bytes": 11051,
+      "sha256": "d864107cc95f7ef1fce873d887bdcc733d6e1e65eb7b751c84a939a40382ea4e"
+    },
+    {
+      "path": "paper/figs/billiards.pdf",
+      "bytes": 118427,
+      "sha256": "f3232640a782d3634f2eece5f4ae6652cef02915efdc596d07432ff39729b1e1"
+    },
+    {
+      "path": "paper/figs/billiards_depth_stride.pdf",
+      "bytes": 84406,
+      "sha256": "9c72e0b466211c6c4bf163cf8df54e6d91b7b274c1db75e88f51acffc4aaeae4"
+    },
+    {
+      "path": "paper/figs/billiards_mechanism.pdf",
+      "bytes": 112370,
+      "sha256": "9ffa595c81e65aad4dd8562e5b606af4ac1debceff3bbf78de990e267e7df60b"
+    },
+    {
+      "path": "paper/figs/design_space_attention.pdf",
+      "bytes": 48256,
+      "sha256": "54e07bab38d48a2d4d0475e272e40f3bb846aca19907c136e3150a6f2ed68e19"
+    },
+    {
+      "path": "paper/figs/design_space_convolution.pdf",
+      "bytes": 48343,
+      "sha256": "320c5661f40ad2c15c071a7b573a36ac7240ad51f4ba6bdc61e7b51866c2af2e"
+    },
+    {
+      "path": "paper/figs/design_space_diffusion.pdf",
+      "bytes": 44902,
+      "sha256": "87d7d6147f1c9d69a60f055348fe31e836cfbb0b715e7d87ff221a40976cd825"
+    },
+    {
+      "path": "paper/figs/design_space_v1.pdf",
+      "bytes": 106271,
+      "sha256": "7ad2e1b04432d878fcae20a4ec7dd4bfd64bbfe2662e0d8f675fb3c74c6c68d5"
+    },
+    {
+      "path": "paper/figs/diffusion_timeline.pdf",
+      "bytes": 31352,
+      "sha256": "80ece8e45af54072259b5db9c05fe76744d5deaff02120cf0e000ad89c4711c5"
+    },
+    {
+      "path": "paper/figs/e18_temporal_seeds.pdf",
+      "bytes": 29719,
+      "sha256": "e4e6a51803a95d00dfeb8710b24fa1d8e7c611df70a8d495348e8d1c9a547ad7"
+    },
+    {
+      "path": "paper/figs/e21_depth_heatmap.pdf",
+      "bytes": 36354,
+      "sha256": "383745ccb3ddb3a363e3576fd5151ff5145f72a539514bb1bce2aef3d1091c99"
+    },
+    {
+      "path": "paper/figs/e22_seed_heatmap.pdf",
+      "bytes": 39274,
+      "sha256": "cdb5eaa371dc5d1961e24dac4ecd07fdb44d6689fd30b7ec4d98edf8283032b1"
+    },
+    {
+      "path": "paper/figs/infoflow_v3.pdf",
+      "bytes": 39166,
+      "sha256": "fe94d605fe03c9458251ac481686d1452ca8d2b745abb79b26a1ddf9c0ed5797"
+    },
+    {
+      "path": "paper/figs/main_ladder_seeds_v3.pdf",
+      "bytes": 66902,
+      "sha256": "2bc09e27187cf860c41acfb535d81ffcc5f4c67d362c40db4eab9cc10fb950e4"
+    },
+    {
+      "path": "paper/figs/main_ladder_v3.pdf",
+      "bytes": 51999,
+      "sha256": "fbb290aa2d4e224d50c6f008848ec42b7e73d1a655408e973dd07307af6384b5"
+    },
+    {
+      "path": "paper/figs/main_seeds_v4.pdf",
+      "bytes": 59947,
+      "sha256": "a4b247e662739f3c5e75b7001ed7727b25abca32e4c90b696c83eafb6bfa96e6"
+    },
+    {
+      "path": "paper/figs/main_table_v4.pdf",
+      "bytes": 58033,
+      "sha256": "ceb8679fcf8f4c935487b6f561f3ecff8d7e5b7601bb11fc5d8b7542d43e1dd6"
+    },
+    {
+      "path": "paper/figs/physics_bars.pdf",
+      "bytes": 63082,
+      "sha256": "bc2c727d46efc634a719d6f5f7d2e55c7561f4f5266598fe82beb69abdce3969"
+    },
+    {
+      "path": "paper/figs/physics_schematics.pdf",
+      "bytes": 75202,
+      "sha256": "25c2edb4a70eeb3069e7094c12512ce966172c425607ede1a09dc02c14d35735"
+    },
+    {
+      "path": "paper/figs/sc_ladder_curves.pdf",
+      "bytes": 150333,
+      "sha256": "b15e1f6b705174fb7403d83a0f7986a58ef8ceec41df3e2baab2dfafcc948673"
+    },
+    {
+      "path": "paper/figs/teaser_v1.pdf",
+      "bytes": 69456,
+      "sha256": "36c536bcd93bdab1975084fb5a2e456d7d641d01322c01e437a61b8294ed4ad7"
+    },
+    {
+      "path": "paper/figs/two_inductions.pdf",
+      "bytes": 69458,
+      "sha256": "185563277d9b48cb1bdb03eb3c6dea402bf4221a583d9dcd8babe92f4d4576c2"
+    },
+    {
+      "path": "paper/figs/two_metrics_r2.pdf",
+      "bytes": 45203,
+      "sha256": "e03ccca548a7f090123a30e83d546922e46ce2377e2e7066654af6edc9c46d28"
+    },
+    {
+      "path": "paper/figs/two_metrics_r2_narrow.pdf",
+      "bytes": 39503,
+      "sha256": "cb33f784862cc63337cedf199638f717d1f5c4be7a9718d3cf4cf4f0f1d45d48"
+    },
+    {
+      "path": "paper/figs/two_metrics_r2_narrow.tex",
+      "bytes": 5944,
+      "sha256": "195c8434a66fcac021e19e7039135465d52f2dafc3ece9c3c4b147978e309e8c"
+    },
+    {
+      "path": "paper/figs/two_metrics_v3.pdf",
+      "bytes": 28313,
+      "sha256": "d103ac22673422cead1ff04df76532afc9dd977f3b8545902386d401726b57eb"
+    },
+    {
+      "path": "paper/fonts/FunnelDisplay-Medium.ttf",
+      "bytes": 34252,
+      "sha256": "c0232f85597a2cb05104859ea8e780db451e86beffc42d7a00241df6b5739085"
+    },
+    {
+      "path": "paper/fonts/OFL.txt",
+      "bytes": 4382,
+      "sha256": "a32303f6ea3542927121212a9e4f3fe3548741e6d448d9dc6f29e97cf50102e6"
+    },
+    {
+      "path": "paper/fonts/README.md",
+      "bytes": 493,
+      "sha256": "ea0cd465a75b820f9b8890316e45f1ebf09db0aa843c69eeeeb9c84c8798f26a"
+    },
+    {
+      "path": "paper/main.pdf",
+      "bytes": 1595743,
+      "sha256": "5ddd1755d52b14a3c3ad69b652b9a47324277fdd656c4c91967b2fbc32c47b8b"
+    },
+    {
+      "path": "paper/main.tex",
+      "bytes": 125439,
+      "sha256": "a8e2b67be8031eeae297a588cbc6cf9b94a6e3547fb21eaeea23a1d33f4bf493"
+    },
+    {
+      "path": "paper/metacircle.sty",
+      "bytes": 3961,
+      "sha256": "76cc087c2846ed91832e44f3985618a83afb74ebe5f56baf7090765a24fda86f"
+    },
+    {
+      "path": "paper/tsinghua_badge_color_official.pdf",
+      "bytes": 156420,
+      "sha256": "2de4a9827c52f0b20440bc3faceac0d6014a311ed9bc39e24f26cdb572684ee5"
+    },
+    {
       "path": "pytest.ini",
       "bytes": 67,
       "sha256": "53bf3c1e606003f7e81a96f8aa425d263b42df35d09e5beb89b4589372f816f3"
@@ -365,8 +590,8 @@
     },
     {
       "path": "results/FIGURES.json",
-      "bytes": 2987,
-      "sha256": "96f4bc21dc41204d1600759e08d38019c5f98cba83b9e2f0791e934cac8f8a22"
+      "bytes": 3108,
+      "sha256": "505e773f0a8a66559c8c86fed234e2edd593b7032ec2b77f3dff99f6c214c1aa"
     },
     {
       "path": "results/RESULTS.html",

@@ -143,7 +143,7 @@ L4 & evidence withheld; a prior is needed\\
 \endgroup
 \vskip6pt
 \includegraphics[width=\linewidth]{figs/two_metrics_r2_narrow.pdf}
-\caption{\textbf{Two metrics on held-out rules.} Grey: pixel-level accuracy, the fraction of predicted cells correct. Coloured: SeqAcc, the fraction of rollouts with all $8\times64=512$ cells correct. Means over three seeds; per-seed values in Appendix~\ref{app:recipes}.}
+\caption{\textbf{Two metrics on held-out rules.} Grey: pixel accuracy, teacher-forced one step ahead (given the true history) except for standard and causal-freezing diffusion, which score their generated rollouts. Compare grey bars only within the same evaluation mode. Coloured: SeqAcc always scores the full rollout, requiring all $8\times64=512$ cells correct. Means over three seeds; per-seed values in Appendix~\ref{app:recipes}.}
 \label{fig:twometrics}
 \end{minipage}
 \endgroup
@@ -289,11 +289,16 @@ Training data are generated deterministically from (seed, index) by a
 version-frozen simulator, so no training corpus needs to be shipped;
 evaluation corpora are pinned files with SHA-256 sidecars that regenerate
 identically on any machine. Protocol, architecture, and recipe details are in
-Appendices~\ref{app:protocol}--\ref{app:recipes}. The full
-codebase---simulator, single-entry training script, evaluation and analysis
-tooling, and the pinned evaluation corpora---has been staged locally for
-release. Public availability and a stable archive link will be confirmed
-in the arXiv version after the release checks are complete.
+Appendices~\ref{app:protocol}--\ref{app:recipes}. Selected reproduction
+materials are publicly available at
+\href{https://github.com/guoshaoyang-pku/momentum-induction/tree/release-2026-10-04}{the momentum-induction repository, release-2026-10-04}:
+the CA simulator, model and training/evaluation code, pinned evaluation
+corpora, figures, and selected per-seed result tables. Six E21 EMA checkpoints
+and a direct L4B re-evaluation script are included. Other reported runs,
+including the E11 sampler comparison, have no bundled checkpoints; the
+complete original run logs and continuous-dynamics experiment code are not
+included. The release README documents this coverage, and the manifest
+verifies the shipped files and corpus hashes.
 
 \section*{Statement on the Use of AI Assistance}
 In this work, we used generative AI tools (large-language-model assistants)
