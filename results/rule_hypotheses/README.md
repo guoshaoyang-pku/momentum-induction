@@ -58,3 +58,51 @@ PYTHONPATH=scripts python scripts/run_rule_hypotheses_merge.py --input /tmp/hypo
 python scripts/plot_rule_hypotheses.py --inputs /tmp/hypotheses.jsonl /tmp/hypotheses-merge.jsonl --out /tmp/hypotheses.png
 PYTHONPATH=.:scripts python -m pytest -q scripts/tests/test_rule_hypotheses.py scripts/tests/test_raw_evidence*.py scripts/tests/test_art_tokenizer.py scripts/tests/test_e14_torus_rope.py scripts/tests/test_e15_pair_controls.py scripts/tests/test_eval_tf.py
 ```
+
+## Completed three-seed validation
+All originally launched 1,200-update fits finished, without rerunning training.
+Frozen raw records: `1200_complete.jsonl`. History-only merges for seeds 43
+and 44 are newly evaluated, joined with the existing seed 42 receipt in
+`merge_complete.jsonl`. Class counts before repair: 49/94/51; after:
+18/18/18, zero false merges or splits in all three seeds. Canonical class
+maps are identical. This is empirical equivalence on this rule family,
+not a proof for arbitrary CA. No validation labels used in the merge.
+
+| Decoder | SC MAP / top4 | Unfiltered MAP / top4 | L1 MAP / top4 |
+|---|---|---|---|
+| Before repair, three-seed mean |32.21 /45.95%|22.98 /34.88%|50.20 /63.28%|
+| After repair, all three seeds identical |100 /100%|81.88 /99.12%|97.85 /100%|
+
+![Complete validation](hypotheses_complete.png)
+
+## Weighted priors and joint likelihood
+Added weighted persistent-rule best-first decoding, exact first-frame joint
+NLL (count each queried unknown rule bit once), and separate pixel marginal
+NLL. Each training world supplies at most one vote per observed class,
+Laplace smoothing; no validation fitting or held-out rule membership.
+SC observations are selection-biased and all empirical histories may have
+nonrandom missingness, so these are diagnostic independent-bit priors,
+not estimates of the exact conditional posterior.
+
+| Prior | L3-unfiltered MAP / top4 | L1 MAP / top4 |
+|---|---|---|
+| Uniform (one distinct canonical map) |81.88 /99.12%|97.85 /100%|
+| SC-history (three seeds) |81.92 /99.22%|86.39 /99.67%|
+| Unfiltered-history (three seeds) |82.06 /99.04%|88.93 /99.41%|
+
+All SC results remain 100%; no impossible targets or search exhaustion
+in these repaired-partition runs. Uniform remains the preferred general
+baseline: empirical priors give negligible improvement on unfiltered L3
+and harm L1. On unfiltered L3 uniform joint NLL is .001105 nats/target,
+pixel marginal NLL .001634. Both normalized by 64 targets per trajectory;
+the former is a genuine correlated-frame likelihood, not a factorized BCE.
+Neither is a fitted Structance or the original R0 model. Seven complete
+records in `prior_complete.jsonl`; uniform evaluated only once because
+all canonical partitions are identical.
+
+![Prior comparison](prior_complete.png)
+
+Reproduce: `PYTHONPATH=scripts python scripts/run_rule_prior.py --input results/rule_hypotheses/1200_complete.jsonl --corpora data/eval_corpora --out /tmp/prior.jsonl`.
+Targeted regression: 35 passed, including exact weighted search versus
+enumeration, repeated-query joint likelihood, corner wrap and future
+causality. R0 GPU queue still reports zero registered releases; no dispatch.
