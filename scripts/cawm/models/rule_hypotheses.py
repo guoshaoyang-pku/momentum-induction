@@ -7,6 +7,7 @@ Exact best-first MAP under this prior if a leaf is reached within budget.
 """
 import heapq
 import itertools
+import math
 import numpy as np
 from cawm.simulate import neighbor_count
 
@@ -61,11 +62,13 @@ def marginal_first(prefix,classes):
     p=t[classes[raw_pattern(prefix[-1])]]
     return np.where(p<0,.5,p)
 
-def decode(prefix,classes,steps=8,top_k=1,max_nodes=4096):
+def decode(prefix,classes,steps=8,top_k=1,max_nodes=4096,prior=None):
     """Return highest-probability unique futures; budget exhaustion explicit.
 
     Search nodes are partial assignments to previously unseen class bits.
-    A path with k such assignments has probability 2**(-k). Deterministic
+    A path has the product of assigned-bit prior masses (2**(-k) for
+    uniform prior). Prior probabilities are fixed before seeing the prefix.
+    Deterministic
     frame propagation stops at the first required unknown class. Equal-prior
     branches are expanded in fixed order. Heap priority is monotone, so any
     emitted complete path is globally MAP (or next-ranked) even if later
@@ -74,13 +77,17 @@ def decode(prefix,classes,steps=8,top_k=1,max_nodes=4096):
     if min(steps,top_k,max_nodes)<1:raise ValueError("positive budgets")
     classes=np.asarray(classes)
     t=prefix_table(prefix,classes)
+    if prior is not None:
+        prior=np.asarray(prior,dtype=float)
+        if prior.shape!=(int(classes.max())+1,) or not np.isfinite(prior).all() or not ((prior>0)&(prior<1)).all():
+            raise ValueError("prior must contain one strictly interior probability per class")
     if t is None:return dict(paths=[],nodes=0,exhausted=False,conflict=True)
     heap=[];tie=itertools.count()
     # Heap state holds already generated frames, last frame, and table.
-    heapq.heappush(heap,(0,next(tie),t,np.asarray(prefix[-1],dtype=np.uint8),()))
+    heapq.heappush(heap,(0.,next(tie),0,t,np.asarray(prefix[-1],dtype=np.uint8),()))
     paths=[];nodes=0
     while heap and len(paths)<top_k and nodes<max_nodes:
-        k,_,t,cur,frames=heapq.heappop(heap);nodes+=1
+        cost,_,k,t,cur,frames=heapq.heappop(heap);nodes+=1
         while len(frames)<steps:
             q=classes[raw_pattern(cur)]
             unknown=np.unique(q[t[q]<0])
@@ -88,12 +95,13 @@ def decode(prefix,classes,steps=8,top_k=1,max_nodes=4096):
                 j=int(unknown[0])
                 for v in (0,1):
                     tt=t.copy();tt[j]=v
-                    heapq.heappush(heap,(k+1,next(tie),tt,cur,frames))
+                    prob=.5 if prior is None else (prior[j] if v else 1-prior[j])
+                    heapq.heappush(heap,(cost-math.log2(prob),next(tie),k+1,tt,cur,frames))
                 break
             cur=t[q].astype(np.uint8)
             frames=frames+(cur,)
         else:
-            paths.append(dict(frames=np.stack(frames),new_bits=k,probability=2.**(-k)))
+            paths.append(dict(frames=np.stack(frames),new_bits=k,probability=2.**(-cost)))
     return dict(paths=paths,nodes=nodes,conflict=False,
                 exhausted=bool(heap) and len(paths)<top_k)
 
