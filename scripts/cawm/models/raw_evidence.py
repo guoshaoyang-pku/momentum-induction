@@ -34,8 +34,8 @@ class RawEvidenceCA(nn.Module):
 
     def evidence(self, prefix):
         """Only observed frames; prefix shape (B,8,H,W), 0/1."""
-        if prefix.shape[1:] != (8,self.grid,self.grid):
-            raise ValueError("expected exactly 8 observed frames")
+        if prefix.ndim != 4 or prefix.shape[1] != 8 or prefix.shape[-2] != prefix.shape[-1] or prefix.shape[-1] < 3:
+            raise ValueError("expected 8 observed frames on a square grid >=3")
         p = self.pattern(prefix[:,:7]).flatten(1)
         y = prefix[:,1:].flatten(1).float()
         c = y.new_zeros((len(y),512))
@@ -68,7 +68,7 @@ class RawEvidenceCA(nn.Module):
 
     def query(self,prev):
         q = self.pattern(prev)
-        return torch.roll(q,(self.grid//2,self.grid//2),(-2,-1)) if self.shifted else q
+        return torch.roll(q,(q.shape[-2]//2,q.shape[-1]//2),(-2,-1)) if self.shifted else q
 
     @staticmethod
     def gather(table,q):
@@ -85,11 +85,13 @@ class RawEvidenceCA(nn.Module):
         return torch.stack([self.gather(t,self.query(x[:,i])) for i in range(7,15)],1)
 
     @torch.no_grad()
-    def rollout(self,prefix_pm1):
+    def rollout(self,prefix_pm1,steps=8):
+        if not isinstance(steps,int) or isinstance(steps,bool) or steps<1:
+            raise ValueError("steps must be a positive integer")
         x = (prefix_pm1[:,0]>0).long()
         t = self.table(*self.evidence(x))
         cur=x[:,7];out=[]
-        for _ in range(8):
+        for _ in range(steps):
             cur=(self.gather(t,self.query(cur))>0).long()
             out.append(cur.to(torch.uint8))
         return torch.stack(out,1)
