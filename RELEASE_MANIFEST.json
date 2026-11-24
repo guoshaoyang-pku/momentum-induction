@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "generated_utc": "2026-10-04T13:20:46+00:00",
+  "generated_utc": "2026-11-24T04:15:02+00:00",
   "purpose": "public supplement release; curated code, pinned corpora, figures, and optional selected weights",
   "files": [
     {
@@ -774,6 +774,11 @@
       "sha256": "381af0b93d3a4dda1726285ca97a260fd467cc4aa99fa772599b48f93e1c3b32"
     },
     {
+      "path": "scripts/cawm/models/art_cached.py",
+      "bytes": 3103,
+      "sha256": "42cecba17695b10727f2bedfce428e4e2d52f4056f6c36189c1bc776ece32d19"
+    },
+    {
       "path": "scripts/cawm/models/art_induction.py",
       "bytes": 13756,
       "sha256": "5c9dade8c29e160154c262d0dec4280d1532e0d1559974b161ab56149c290a22"
@@ -962,6 +967,11 @@
       "path": "scripts/tests/test_agg_init.py",
       "bytes": 2490,
       "sha256": "08bc55507f2f519271107ccd11e8450ace6be452a176652c21736b59a2cc1100"
+    },
+    {
+      "path": "scripts/tests/test_art_cached.py",
+      "bytes": 1366,
+      "sha256": "0012411eb57f1e834045d42d210ff87a2d65c57f04307c099bd6e9ed7c25dfe0"
     },
     {
       "path": "scripts/tests/test_art_diffusion.py",
