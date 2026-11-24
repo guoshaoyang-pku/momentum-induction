@@ -32,7 +32,7 @@ from .data import (StreamDataset, ChunkedStreamDataset, build_eval_corpus,
 from .eval import (bf16_ctx, metrics, metrics_stratified_slot,
                    metrics_stratified_v2, metrics_cov_bins, rollout_corpus)
 from .models.art_temporal import ArtTemporal
-from .models import (ArtInduction, ArtKVShift, ArtTwoHop, ArtVanilla, ARCNN,
+from .models import (ArtInduction, ArtKVShift, ArtTwoHop, ArtVanilla, ARCNN, RawEvidenceCA,
                      LifeGPTConfig, LifeGPT, AutomataGPTConfig, BurtsevConfigWM,
                      NCAConfigWM, DiffNCACfg,
                      ConstructiveCNN, DiffusionModel, DiffusionVanilla)
@@ -116,6 +116,9 @@ def build_model(seed, model="constructive", **kw):
                       pos=kw.get("twohop_pos", "learned"))
     elif model == "arcnn":
         m = ARCNN(grid=kw["grid"], arm=kw["arm"], head=kw["head"])
+    elif model in ("raw_evidence_mean", "raw_evidence_count", "raw_evidence_shift"):
+        m = RawEvidenceCA(grid=kw["grid"], mode="mean" if model.endswith("mean") else "count",
+                          shifted=model.endswith("shift"))
     elif model == "lifegpt":
         m = LifeGPT(grid=kw["grid"], dmodel=kw.get("dmodel", 256),
                     nlayers=kw.get("nlayers") or 12,
@@ -363,6 +366,7 @@ def main():
                                        "lifegpt", "lifegpt_cfg", "automatagpt_cfg", "burtsev_cfg",
                                        "nca_cfg",
                                        "arcnn", "diffusion_vanilla",
+                                       "raw_evidence_mean", "raw_evidence_count", "raw_evidence_shift",
                                        "diffnca_cfg"],
                    default="constructive")
     p.add_argument("--arm", choices=["existence", "emergence"], default="existence")
