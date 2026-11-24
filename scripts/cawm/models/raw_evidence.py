@@ -13,7 +13,7 @@ from torch.nn import functional as F
 class RawEvidenceCA(nn.Module):
     def __init__(self, grid=8, shifted=False, mode="count"):
         super().__init__()
-        if mode not in ("count", "mean", "sqrt"):
+        if mode not in ("count", "mean", "sqrt", "support"):
             raise ValueError(mode)
         self.grid, self.shifted, self.mode = grid, shifted, mode
         self.enc = nn.Sequential(nn.Linear(9,16), nn.Tanh(), nn.Linear(16,8))
@@ -21,6 +21,8 @@ class RawEvidenceCA(nn.Module):
         self.bias = nn.Parameter(torch.tensor(0.))
         if mode != "mean":
             self.noise_logit = nn.Parameter(torch.tensor(-4.))
+        if mode == "support":
+            self.log_prior_count = nn.Parameter(torch.tensor(0.))
         self.register_buffer("bits", ((torch.arange(512)[:,None] >> torch.arange(9)) & 1).float())
 
     @staticmethod
@@ -56,6 +58,9 @@ class RawEvidenceCA(nn.Module):
         # A trainable symmetric flip probability bounds next-cell confidence.
         if self.mode == "sqrt":
             signed = signed / (c @ w.T).clamp_min(1.).sqrt()
+        if self.mode == "support":
+            # Suppress unsupported extrapolation; strong evidence saturates.
+            signed = signed / (c @ w.T + F.softplus(self.log_prior_count) + 1e-4)
         score = F.softplus(self.log_gain)*signed+self.bias
         eps = .5*self.noise_logit.sigmoid()
         prob = eps+(1-2*eps)*score.sigmoid()

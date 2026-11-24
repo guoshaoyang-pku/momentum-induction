@@ -116,8 +116,8 @@ def build_model(seed, model="constructive", **kw):
                       pos=kw.get("twohop_pos", "learned"))
     elif model == "arcnn":
         m = ARCNN(grid=kw["grid"], arm=kw["arm"], head=kw["head"])
-    elif model in ("raw_evidence_mean", "raw_evidence_count", "raw_evidence_sqrt", "raw_evidence_shift"):
-        m = RawEvidenceCA(grid=kw["grid"], mode="mean" if model.endswith("mean") else "sqrt" if model.endswith("sqrt") else "count",
+    elif model in ("raw_evidence_mean", "raw_evidence_count", "raw_evidence_sqrt", "raw_evidence_support", "raw_evidence_shift"):
+        m = RawEvidenceCA(grid=kw["grid"], mode="mean" if model.endswith("mean") else "sqrt" if model.endswith("sqrt") else "support" if model.endswith("support") else "count",
                           shifted=model.endswith("shift"))
     elif model == "lifegpt":
         m = LifeGPT(grid=kw["grid"], dmodel=kw.get("dmodel", 256),
@@ -366,7 +366,7 @@ def main():
                                        "lifegpt", "lifegpt_cfg", "automatagpt_cfg", "burtsev_cfg",
                                        "nca_cfg",
                                        "arcnn", "diffusion_vanilla",
-                                       "raw_evidence_mean", "raw_evidence_count", "raw_evidence_sqrt", "raw_evidence_shift",
+                                       "raw_evidence_mean", "raw_evidence_count", "raw_evidence_sqrt", "raw_evidence_support", "raw_evidence_shift",
                                        "diffnca_cfg"],
                    default="constructive")
     p.add_argument("--arm", choices=["existence", "emergence"], default="existence")
