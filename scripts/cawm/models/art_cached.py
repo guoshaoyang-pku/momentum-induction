@@ -65,3 +65,27 @@ def rollout_cached(model, prefix_pm1, nframes=8):
         if i + 1 < nframes * model.grid ** 2:
             logits = cache.append(tok)
     return torch.cat(predictions, dim=1).reshape(B, nframes, model.grid, model.grid).to(torch.uint8)
+
+
+@torch.no_grad()
+def rollout_sliding_cached(model, prefix_pm1, nframes=8):
+    """Autonomous sliding 8-frame context for FIRST-FRAME trained R0.
+
+    Restart the cache and absolute positions at each generated frame.
+    Only positions used in first-frame training (0..9*g*g-2) are read.
+    This is a separate inference protocol, not native full-context R0 rollout.
+    """
+    if not isinstance(nframes, int) or isinstance(nframes, bool) or nframes < 1:
+        raise ValueError("positive integer horizon required")
+    if prefix_pm1.ndim != 5 or prefix_pm1.shape[1:] != (1, 8, model.grid, model.grid):
+        raise ValueError("expected exactly eight observed frames")
+    if not torch.all((prefix_pm1 == -1) | (prefix_pm1 == 1)):
+        raise ValueError("expected binary +/-1 prefix")
+    context = prefix_pm1
+    predictions = []
+    for _ in range(nframes):
+        frame = rollout_cached(model, context, 1)
+        predictions.append(frame)
+        next_pm1 = 2 * frame.to(context.dtype).unsqueeze(1) - 1
+        context = torch.cat((context[:, :, 1:], next_pm1), dim=2)
+    return torch.cat(predictions, dim=1)

@@ -775,8 +775,8 @@
     },
     {
       "path": "scripts/cawm/models/art_cached.py",
-      "bytes": 3103,
-      "sha256": "42cecba17695b10727f2bedfce428e4e2d52f4056f6c36189c1bc776ece32d19"
+      "bytes": 4224,
+      "sha256": "870cfd67ba0111adb567a15b1335c0da8e8c16caf7783e426aca67fc323cbe15"
     },
     {
       "path": "scripts/cawm/models/art_induction.py",
@@ -987,6 +987,11 @@
       "path": "scripts/tests/test_art_reads.py",
       "bytes": 2270,
       "sha256": "e7c86c78c72cbfb830bd7cc9ddf8f10aadde5032462aabbba33a19ea74694ad5"
+    },
+    {
+      "path": "scripts/tests/test_art_sliding_cached.py",
+      "bytes": 1924,
+      "sha256": "a001115959912b01590b63d132cf8e9b9e0c1df4b277750e01a5b688962f6c40"
     },
     {
       "path": "scripts/tests/test_art_temporal.py",
