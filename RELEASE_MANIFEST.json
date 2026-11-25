@@ -849,6 +849,11 @@
       "sha256": "9a683a19f2846aa8d0c091442aa3b3c90343cef3a4a6cdf8f6db09e50c292cc1"
     },
     {
+      "path": "scripts/cawm/models/torus_mixture.py",
+      "bytes": 4982,
+      "sha256": "db4b76a186d1c3842141915dc9060d109afdaef23eb270394fd1c407339d52c3"
+    },
+    {
       "path": "scripts/cawm/rules.py",
       "bytes": 3801,
       "sha256": "1e21583bed9d023f466e44a0b31f764fb8989d55ca8cb3e67571ac35d6ecf1ad"
@@ -1142,6 +1147,11 @@
       "path": "scripts/tests/test_smoke.py",
       "bytes": 11806,
       "sha256": "f91c4d2ac5d41ca334d08b6b5cc9e104f01d0f0127f616eabced359ec2b8353d"
+    },
+    {
+      "path": "scripts/tests/test_torus_mixture.py",
+      "bytes": 4156,
+      "sha256": "f6f54a7aefd82b34a1fb2da19d1cfb348f81ab6f8c3d7b471cf8e0da22b5194d"
     },
     {
       "path": "scripts/verify_results.py",
