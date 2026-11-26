@@ -28,14 +28,14 @@ def canonical_classes(classes):
     _,first,inv=np.unique(classes,return_index=True,return_inverse=True)
     return np.argsort(np.argsort(first))[inv]
 
-def prefix_tables(prefix, classes):
+def prefix_tables(prefix, classes, *, history=8):
     prefix=np.asarray(prefix)
     classes=np.asarray(classes)
-    if prefix.ndim!=4 or prefix.shape[1]!=8 or not np.isin(prefix,[0,1]).all():
-        raise ValueError('eight binary prefix frames required')
+    if type(history) is not int or history<1 or prefix.ndim!=4 or len(prefix)==0 or prefix.shape[1]!=history or not np.isin(prefix,[0,1]).all():
+        raise ValueError('explicit number of binary prefix frames required')
     if classes.shape!=(512,) or not np.issubdtype(classes.dtype,np.integer) or not np.array_equal(np.unique(classes),np.arange(classes.max()+1)) or classes.max()>=64:
         raise ValueError('need contiguous classes, at most 64')
-    q=classes[patterns(prefix[:,:7])].reshape(len(prefix),-1)
+    q=classes[patterns(prefix[:,:-1])].reshape(len(prefix),-1)
     y=prefix[:,1:].reshape(len(prefix),-1)
     t=np.full((len(prefix),int(classes.max())+1),-1,dtype=np.int8)
     i=np.arange(len(prefix))[:,None]
@@ -44,14 +44,14 @@ def prefix_tables(prefix, classes):
         raise ValueError('inconsistent prefix class')
     return t
 
-def search(prefix, classes, budgets=(1,8,32,128), seed=0, horizon=8):
+def search(prefix, classes, budgets=(1,8,32,128), seed=0, horizon=8, *, history=8):
     """Return best sampled unique future by exact joint mass under fair unseen bits.
     A zero-fill candidate is always included. The search is not an exact MAP
     unless it attains the lower bound imposed by the first frame.
     """
     if not budgets or min(budgets)<1 or horizon<1: raise ValueError('positive budgets')
     classes=canonical_classes(classes)
-    t=prefix_tables(prefix,classes)
+    t=prefix_tables(prefix,classes,history=history)
     rng=np.random.default_rng(seed)
     all_out={k:[] for k in budgets}
     for start in range(0,len(t),32):
