@@ -3,6 +3,7 @@ from .art_kvshift import ArtKVShift
 from .art_twohop import ArtTwoHop
 from .art_vanilla import ArtVanilla
 from .arcnn import ARCNN
+from .raw_evidence import RawEvidenceCA
 from .constructive_cnn import ConstructiveCNN
 from .diffusion import DiffusionModel
 from .diffusion_vanilla import DiffusionVanilla
@@ -13,6 +14,7 @@ __all__ = [
     "ArtTwoHop",
     "ArtVanilla",
     "ARCNN",
+    "RawEvidenceCA",
     "ConstructiveCNN",
     "DiffusionModel",
     "DiffusionVanilla",
